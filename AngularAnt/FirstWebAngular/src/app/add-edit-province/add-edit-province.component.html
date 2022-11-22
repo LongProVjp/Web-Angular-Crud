@@ -1,0 +1,12 @@
+
+    <div>
+      <span>Province</span>
+      <input nz-input placeholder="" [(ngModel)]="province" />
+      <br>
+      <br>
+      <span>District</span>
+      <input nz-input placeholder="" [(ngModel)]="district">
+    </div>
+    <br>
+<button nz-button nzType="primary" (click)="addProvince()" *ngIf="provi.id == '0'">Add</button>
+<button nz-button nzType="primary" (click)="updateProvince()" *ngIf="provi.id != '0'">Save</button>

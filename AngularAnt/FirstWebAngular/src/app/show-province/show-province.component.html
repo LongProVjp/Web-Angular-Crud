@@ -1,0 +1,51 @@
+<h2>WEB QUẢN LÍ TỈNH THÀNH,QUẬN HUYỆN </h2>
+<button nz-button nzType="primary" (click)="addClick()">
+  <span>Add Province</span>
+</button>
+<nz-modal
+      [(nzVisible)]="ActivateAddEditProComp"
+      [nzTitle]="modalTitle"
+      [nzContent]="modalContent"
+      [nzFooter]=null
+      (nzOnCancel)="closeClick()"
+    >
+
+    <ng-template #modalTitle>{{ModalTitle}}</ng-template>
+    <ng-template #modalContent>
+      <app-add-edit-province [provi]="provin" *ngIf="ActivateAddEditProComp">
+      </app-add-edit-province>
+    </ng-template>
+</nz-modal>
+ 
+<nz-input-group [nzSuffix]="suffixIconSearch">
+  <input type="text" [(ngModel)]="ProvinceNameFilter" nz-input placeholder="Search" />
+</nz-input-group>
+<ng-template #suffixIconSearch>
+  <span nz-icon nzType="search"></span>
+</ng-template>
+<nz-table #basicTable [nzData]="ProvinceList">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Province</th>
+      <th>District</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dataItem of basicTable.data | search:ProvinceNameFilter">
+      <td>{{dataItem.id}}</td>
+      <td>{{dataItem.province}}</td>
+      <td>{{dataItem.district}}</td>
+      <td>
+        <button nz-button nzType="text" (click)="editClick(dataItem)">
+          <span nz-icon nzType="form" nzTheme="outline"></span>
+        </button> 
+        <nz-divider nzType="vertical"></nz-divider>
+        <button nz-button nzType="text" (click)="deleteClick(dataItem)">
+        <span nz-icon nzType="delete" nzTheme="outline">
+        </span>
+      </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
