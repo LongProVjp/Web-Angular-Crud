@@ -4,10 +4,10 @@ namespace WebApiTest.Repository
 {
     public interface IProvinceRepository
     {
-        Task<IEnumerable<ProvinceClass>> GetProvince();
-        Task<ProvinceClass> GetProvinceByID(int ID);
-        Task<ProvinceClass> InsertProvince(ProvinceClass objProvince);
-        Task<ProvinceClass> UpdateProvince(ProvinceClass objProvince);
+        Task<IEnumerable<ModelProvince>> GetProvince();
+        Task<ModelProvince> GetProvinceByID(int ID);
+        Task<ModelProvince> InsertProvince(ModelProvince objProvince);
+        Task<ModelProvince> UpdateProvince(ModelProvince objProvince);
         bool DeleteProvince(int ID);
     }
 }

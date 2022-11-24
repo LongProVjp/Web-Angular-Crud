@@ -1,0 +1,13 @@
+<span>Province</span>
+<div>
+  <nz-select nzPlaceHolder="Chọn tỉnh thành" [(ngModel)]="provinceName">
+  <nz-option *ngFor="let prolist of ProvinceList" [nzLabel]="prolist.provinceName" [nzValue]="prolist.provinceName"></nz-option>
+  </nz-select>
+</div>
+<span>District</span>
+  <input nz-input placeholder="Quận huyện" [(ngModel)]="districtName">
+    
+<br>
+<br>
+<button nz-button nzType="primary" (click)="addDistrict()" *ngIf="dis.districtID == '0'">Add</button>
+<button nz-button nzType="primary" (click)="updateDistrict()" *ngIf="dis.districtID != '0'">Save</button>

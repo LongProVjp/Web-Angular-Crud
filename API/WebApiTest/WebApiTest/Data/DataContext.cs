@@ -6,6 +6,7 @@ namespace WebApiTest.Data
     public class DataContext : DbContext
     {
         public DataContext(DbContextOptions<DataContext> options ):base(options) { }
-        public DbSet<ProvinceClass> Provinces { get; set; }
+        public DbSet<ModelProvince> Provinces { get; set; }
+        public DbSet<ModelDistrict> Districts { get; set; }
     }
 }

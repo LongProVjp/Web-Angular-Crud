@@ -9,23 +9,20 @@ import { ApiserviceService } from 'src/app/apiservice.service';
 })
 export class AddEditProvinceComponent implements OnInit {
   @Input() provi: any;
-  id = "";
-  province= "";
-  district="";
+  provinceID = "";
+  provinceName= "";
   constructor(private service: ApiserviceService) { }
  
   ngOnInit(): void {
-    this.id = this.provi.id;
-    this.province = this.provi.province;
-    this.district = this.provi.district;
+    this.provinceID = this.provi.provinceID;
+    this.provinceName = this.provi.provinceName;
   }
 
   
   addProvince() {
     var pro = {
-      id: this.id,
-      province: this.province,
-      district:this.district
+      provinceID: this.provinceID,
+      provinceName : this.provinceName
     };
     this.service.addProvince(pro).subscribe(res => {
       alert(res.toString());
@@ -34,9 +31,8 @@ export class AddEditProvinceComponent implements OnInit {
 
   updateProvince() {
     var pro = {
-      id: this.id,
-      province: this.province,
-      district:this.district
+      provinceID: this.provinceID,
+      provinceName: this.provinceName
     };
     this.service.updateProvince(pro).subscribe(res => {
       alert(res.toString());

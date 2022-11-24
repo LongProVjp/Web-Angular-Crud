@@ -34,10 +34,10 @@ namespace WebApiTest.Controllers
         //Add
         [HttpPost]
         [Route("AddProvince")]
-        public async Task<IActionResult> Post(ProvinceClass pro)
+        public async Task<IActionResult> Post(ModelProvince pro)
         {
             var result = await _provincess.InsertProvince(pro);
-            if (result.Id == 0)
+            if (result.ProvinceID == 0)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Something Went Wrong");
             }
@@ -47,7 +47,7 @@ namespace WebApiTest.Controllers
         //Update
         [HttpPut]
         [Route("UpdateProvince")]
-        public async Task<IActionResult> Put(ProvinceClass pro)
+        public async Task<IActionResult> Put(ModelProvince pro)
         {
             await _provincess.UpdateProvince(pro);
             return new JsonResult("Updated Successfully");

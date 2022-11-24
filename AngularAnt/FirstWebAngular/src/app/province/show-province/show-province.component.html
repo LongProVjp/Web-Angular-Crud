@@ -1,4 +1,3 @@
-<h2>WEB QUẢN LÍ TỈNH THÀNH,QUẬN HUYỆN </h2>
 <button nz-button nzType="primary" (click)="addClick()">
   <span>Add Province</span>
 </button>
@@ -26,16 +25,14 @@
 <nz-table #basicTable [nzData]="ProvinceList">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Province</th>
-      <th>District</th>
+      <th>Province ID</th>
+      <th>Province Name</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let dataItem of basicTable.data | search:ProvinceNameFilter">
-      <td>{{dataItem.id}}</td>
-      <td>{{dataItem.province}}</td>
-      <td>{{dataItem.district}}</td>
+      <td>{{dataItem.provinceID}}</td>
+      <td>{{dataItem.provinceName}}</td>
       <td>
         <button nz-button nzType="text" (click)="editClick(dataItem)">
           <span nz-icon nzType="form" nzTheme="outline"></span>

@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ShowProvinceComponent } from 'src/app/show-province/show-province.component'
+import {ProvinceComponent}from 'src/app/province/province.component';
+import {DistrictComponent}from 'src/app/district/district.component';
 
 const routes: Routes = [
-  {path:'',component:ShowProvinceComponent}
+  {path:'province',component:ProvinceComponent},
+  {path:'district',component:DistrictComponent},
   // { path: '', pathMatch: 'full', redirectTo: '/welcome' },
   // { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) }
 ];

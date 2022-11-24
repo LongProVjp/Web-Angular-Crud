@@ -10,21 +10,21 @@ namespace WebApiTest.Repository
             _context = context ??
                  throw new ArgumentNullException(nameof(context));
         }
-        public async Task<IEnumerable<ProvinceClass>> GetProvince()
+        public async Task<IEnumerable<ModelProvince>> GetProvince()
         {
             return await _context.Provinces.ToListAsync();
         }
-        public async Task<ProvinceClass> GetProvinceByID(int ID)
+        public async Task<ModelProvince> GetProvinceByID(int ID)
         {
             return await _context.Provinces.FindAsync(ID);
         }
-        public async Task<ProvinceClass> InsertProvince(ProvinceClass objProvince)
+        public async Task<ModelProvince> InsertProvince(ModelProvince objProvince)
         {
             _context.Provinces.Add(objProvince);
             await _context.SaveChangesAsync();
             return objProvince;
         }
-        public async Task<ProvinceClass> UpdateProvince(ProvinceClass objProvince)
+        public async Task<ModelProvince> UpdateProvince(ModelProvince objProvince)
         {
             _context.Entry(objProvince).State = EntityState.Modified;
             await _context.SaveChangesAsync();

@@ -1,0 +1,49 @@
+<button nz-button nzType="primary" (click)="addClick()">
+    <span>Add District</span>
+  </button>
+<nz-modal
+  [(nzVisible)]="ActivateAddEditDis"
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  [nzFooter]=null
+  (nzOnCancel)="closeClick()"
+>
+
+<ng-template #modalTitle>{{ModalTitle}}</ng-template>
+<ng-template #modalContent>
+  <app-add-edit-district [dis]="dist" *ngIf="ActivateAddEditDis">
+  </app-add-edit-district>
+</ng-template>
+</nz-modal>
+<nz-input-group [nzSuffix]="suffixIconSearch">
+    <input type="text" [(ngModel)]="DistrictFilter" nz-input placeholder="Search" />
+  </nz-input-group>
+  <ng-template #suffixIconSearch>
+    <span nz-icon nzType="search"></span>
+  </ng-template>
+  <nz-table #basicTable [nzData]="DistrictList">
+    <thead>
+      <tr>
+        <th>District ID</th>
+        <th>District Name</th>
+        <th>Province Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dataItem of basicTable.data | search:DistrictFilter">
+        <td>{{dataItem.districtID}}</td>
+        <td>{{dataItem.districtName}}</td>
+        <td>{{dataItem.provinceName}}</td>
+        <td>
+          <button nz-button nzType="text" (click)="editClick(dataItem)">
+            <span nz-icon nzType="form" nzTheme="outline"></span>
+          </button> 
+          <nz-divider nzType="vertical"></nz-divider>
+          <button nz-button nzType="text" (click)="deleteClick(dataItem)">
+          <span nz-icon nzType="delete" nzTheme="outline">
+          </span>
+        </button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>

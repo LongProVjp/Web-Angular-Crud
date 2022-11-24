@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import{ProvinceComponent} from 'src/app/province/province.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ApiserviceService} from './apiservice.service';
@@ -14,8 +15,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import{ShowProvinceComponent}from './show-province/show-province.component';
-import {AddEditProvinceComponent}from './add-edit-province/add-edit-province.component';
+import{DistrictComponent} from 'src/app/district/district.component';
+import { ShowDistrictComponent } from './district/show-district/show-district.component';
+import { AddEditDistrictComponent } from './district/add-edit-district/add-edit-district.component';
+import{ShowProvinceComponent}from './province/show-province/show-province.component';
+import {AddEditProvinceComponent}from './province/add-edit-province/add-edit-province.component';
 import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzAnchorModule } from 'ng-zorro-antd/anchor';
@@ -91,6 +95,10 @@ registerLocaleData(vi);
     AppComponent,
     ShowProvinceComponent,
     AddEditProvinceComponent,
+    ProvinceComponent,
+    DistrictComponent,
+    ShowDistrictComponent,
+    AddEditDistrictComponent,
     SearchPipe,
   ],
   imports: [
